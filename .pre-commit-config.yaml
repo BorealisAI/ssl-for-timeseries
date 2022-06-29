@@ -1,0 +1,22 @@
+repos:
+- repo: local
+  hooks:
+  - id: black
+    name: black
+    description: This hook reformats code for better readability and maintainability.
+    entry: black --config=pyproject.toml ssl/
+    language: system
+    types: [python]
+    always_run: true
+    stages: [commit]
+    require_serial: true
+
+  - id: flake8
+    name: flake8
+    description: This linter reformats code for better readability and maintainability.
+    entry: flake8 ssl/
+    language: system
+    types: [python]
+    always_run: true
+    stages: [commit]
+    require_serial: true
